@@ -5,6 +5,10 @@
 
 ## Creational
 
-* Builder
-* Prototype
-* Factory Method
+* [Builder](https://github.com/gaeng2y/Design-Pattern/blob/main/Creational/Builder/Builder.md)
+* [Prototype](https://github.com/gaeng2y/Design-Pattern/blob/main/Creational/Prototype/Prototype.md)
+* [Factory Method](https://github.com/gaeng2y/Design-Pattern/blob/main/Creational/FactoryMethod/FactoryMethod.md)
+
+## Structural
+
+## Behavioral
