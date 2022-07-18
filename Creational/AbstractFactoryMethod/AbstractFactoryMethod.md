@@ -30,6 +30,167 @@
 * 제품군 중 하나를 선택하여 시스템에 설정해야 하고 구성한 제품군을 다른 것으로 대체할 수 있을 때
 * 연관되어 잇는 다수의 인스턴스가 함께 사용하도록 설계하고, 이 부분에 대한 제약이 외부에서도 지켜지도록 하고 싶을 때
 
+## 제품군이 필요할 때 Factory Method를 사용했을 때 문제점
 
+아래는 Factory Method 패턴으로 구현한 UML이다
 
+![factoryMethod](https://user-images.githubusercontent.com/73867548/154947932-014a28b2-3ca8-4138-a3ef-db36b527daee.png)
 
+* iPhone, iPad 각 기기 별로 UI를 구성하려는 상황을 가졍해보자
+* 사용자(Factory를 사용하는 타입인 ContentUI) 입장에서는 분기 처리를 위한 ContentType을 이용하여 처리한다
+* 사용자는 모든 UI 요소들의 Factory를 가지고 있어야 한다
+* 결국 부품이 많아지면 사용자 입장에서 관리하기 까다로워 진다
+
+여기서 만약 새로운 기기 Apple Watch가 추가된다면?
+
+모든 Factory에 애플 워치에 관한 분기 처리를 추가해줘야 하며 Factory 쪽 코드 뿐만 아니라 사용자도 애플 워치를 생성하는 경우 내부 코드 변경이 필요하다
+
+따라서 연관이 있는 여러 객체를 묶어서 생성하는 경우에 Abstract Factory 패턴이 Factory Method 패턴에 비해 유리할 수 있다
+
+# Swift로 Abstract Factory Method 패턴 구현하기
+
+![AFM](https://user-images.githubusercontent.com/73867548/154948535-c51711a5-112d-4a62-ae8a-a2256676db41.png)
+
+**Abstract Factory**
+
+* UIFactoryable: Factory 추상화 타입
+
+**Concrete Factory**
+
+* IPhoneFactory, IPadFactory: 각 연관이 있는 인스턴스 집합을 생성할 구체 팩토리 타입
+
+**Abstract Product**
+
+* Buttonable, Labelable: 생성되는 인스턴스를 추상화하는 타입
+
+**Concrete Product**
+
+* IPhoneButton, IPadLabel, ...: 최종적으로 생성되는 구체적인 타입
+
+그렇다면 위의 예시를 가지고 Abstract Factory Method로 구성해 보면 어떻게 될까?
+
+* iPhone, iPad UI를 생성하기 위해 사용자(Factory를 이용하는 타입)은 필요한 Factory를 통해 연관된 UI 요소들을 받아오면 된다
+
+* 만약 새로운 기기가 추가된다면 추상화 되어있는 Factory를 준수하는 AppleWatchFactory를 생성하여 관련 제품군을 넣어 해결이 가능하다
+
+## 생성을 담당하는 Factory 구현
+
+```swift
+import Foundation
+
+// 추상화된 Factory
+protocol UIFactoryalbe {
+    func createButton() -> Buttonalbe
+    func createLabel() -> Labelable
+}
+
+// 연관된 제품군을 실제로 생성하는 구체 Factory
+final class iPadUIFactoy: UIFactoryalbe {
+    func createButton() -> Buttonalbe {
+        return IPadButton()
+    }
+
+    func createLabel() -> Labelable {
+        return IPadLabel()
+    }
+}
+
+final class iPhoneUIFactory: UIFactoryalbe {
+    func createButton() -> Buttonalbe {
+        return IPhoneButton()
+    }
+
+    func createLabel() -> Labelable {
+        return IPhoneLabel()
+    }
+}
+```
+
+## 생성될 Product 구현
+
+```swift
+import Foundation
+
+// 추상화된 Product 
+protocol Buttonalbe {
+    func touchUP()
+}
+
+protocol Labelable {
+    var title: String { get }
+}
+
+// 실제로 생성될 구체 Product, 객체가 가질 기능과 상태를 구현
+final class IPhoneButton: Buttonalbe {
+    func touchUP() {
+        print("iPhoneButton")
+    }
+}
+
+final class IPadButton: Buttonalbe {
+    func touchUP() {
+        print("iPadButton")
+    }
+}
+
+final class IPhoneLabel: Labelable {
+    var title: String = "iPhoneLabel"
+}
+
+final class IPadLabel: Labelable {
+    var title: String = "iPadLabel"
+}
+```
+
+## 사용 부분 VC, UIContent
+
+```swift
+import UIKit
+
+class ViewController: UIViewController {
+
+        //UI를 가지고 있는 인스턴스 기기별로 설정
+    var iPadUIContent = UIContent(uiFactory: iPadUIFactoy())
+    var iPhoneUIContent = UIContent()
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        touchUpButton()
+        printLabelTitle()
+    }
+
+    func touchUpButton() {
+        iPadUIContent.button?.touchUP()
+        iPhoneUIContent.button?.touchUP()
+    }
+
+    func printLabelTitle() {
+        print(iPadUIContent.label?.title ?? "")
+        print(iPhoneUIContent.label?.title ?? "")
+    }
+}
+
+//Factory를 통해 UI를 만들고 가지고 있는 Class
+class UIContent {
+    var uiFactory: UIFactoryalbe
+    var label: Labelable?
+    var button: Buttonalbe?
+
+    //사용할 UI의 Default 값은 iPhone
+    init(uiFactory: UIFactoryalbe = iPhoneUIFactory()) {
+        self.uiFactory = uiFactory
+        setUpUI()
+    }
+
+        //기기에 맞는 UI들 설정
+    func setUpUI() {
+        label = uiFactory.createLabel()
+        button = uiFactory.createButton()
+    }
+}
+```
+
+# Abstract Factory Method 패턴의 한계?
+
+* Abstract Factory Method 패턴은 Factory가 추가되고 기존에 존재하는 Product로 Factory를 구성할 때는 매우 효과적인 패턴이 될 수 있다
+* **하지만** 새로운 종류의 Product가 추가되면 각각의 Factory에도 추각해줘야 하는 경우가 생긴다. Product의 추가나 변동이 잦아진다면 모든 Factory에 변동이 생길 위험이 있다
