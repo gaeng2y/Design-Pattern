@@ -13,7 +13,7 @@
 
 ## Structural
 
-* [Bridge](https://github.com/gaeng2y/Design-Pattern/blob/main/Structual/Bridge/Bridge.md)
-* [Decorator](https://github.com/gaeng2y/Design-Pattern/blob/main/Structual/Decorator/Decorator.md)
+* [Bridge](https://github.com/gaeng2y/Design-Pattern/blob/main/Structrual/Bridge/Bridge.md)
+* [Decorator](https://github.com/gaeng2y/Design-Pattern/blob/main/Structrual/Decorator/Decorator.md)
 
 ## Behavioral
