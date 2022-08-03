@@ -134,7 +134,17 @@ class FacadeConceptual: XCTestCase {
     }
 }
 
-/// Real Exmaple
+/* ----------------------------------------- Output
+Facade initializes subsystems: Sybsystem1: Ready!
+Sybsystem2: Get ready!
+
+Facade orders subsystems to perform the action:
+Sybsystem1: Go!
+Sybsystem2: Fire!
+ 
+ */
+
+/// ------------------------------- Real Exmaple
 /// Facade Design Pattern
 ///
 /// Intent: Provides a simplified interface to a library, a framework, or any
@@ -218,3 +228,10 @@ private class ImageDownloader {
         completion(UIImage(), nil)
     }
 }
+
+/*
+ Let's set an image for the image view
+ Start downloading...
+ Handle an image...
+ Image has been set
+ */
