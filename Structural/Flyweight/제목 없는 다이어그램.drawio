@@ -1,1 +1,49 @@
-<mxfile host="app.diagrams.net" modified="2022-08-29T09:59:21.448Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36" version="20.2.7" etag="HNi7yfKEhY2udjfREOPg" type="github"><diagram id="6r7-wRTml0UBZeaV28oj">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2022-08-29T10:08:21.299Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/104.0.0.0 Safari/537.36" etag="iXmVaPehlQo1L4HcHxs9" version="20.2.7" type="github">
+  <diagram id="6r7-wRTml0UBZeaV28oj" name="페이지-1">
+    <mxGraphModel dx="812" dy="1678" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="JDRypYnZg-psdrnvwvm2-1" value="Flyweight" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="10" y="120" width="170" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="JDRypYnZg-psdrnvwvm2-2" value="+ flywieghtCollection" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="JDRypYnZg-psdrnvwvm2-1">
+          <mxGeometry y="30" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JDRypYnZg-psdrnvwvm2-3" value="+ getFlyweight() -&gt; Flyweight" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="JDRypYnZg-psdrnvwvm2-1">
+          <mxGeometry y="60" width="170" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JDRypYnZg-psdrnvwvm2-5" value="&lt;&lt;protocol&gt;&gt;&#xa;Flyweight" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=40;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="320" y="130" width="150" height="70" as="geometry" />
+        </mxCell>
+        <mxCell id="JDRypYnZg-psdrnvwvm2-6" value="+ method(extrinsicState)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="JDRypYnZg-psdrnvwvm2-5">
+          <mxGeometry y="40" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JDRypYnZg-psdrnvwvm2-9" value="ConcreteFlyweight" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="320" y="280" width="150" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="JDRypYnZg-psdrnvwvm2-10" value="- state: intrinsicState" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="JDRypYnZg-psdrnvwvm2-9">
+          <mxGeometry y="30" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JDRypYnZg-psdrnvwvm2-12" value="+ method(extrinsicState)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=4;spacingRight=4;overflow=hidden;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;rotatable=0;" vertex="1" parent="JDRypYnZg-psdrnvwvm2-9">
+          <mxGeometry y="60" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="JDRypYnZg-psdrnvwvm2-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0.967;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="JDRypYnZg-psdrnvwvm2-13" target="JDRypYnZg-psdrnvwvm2-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JDRypYnZg-psdrnvwvm2-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="JDRypYnZg-psdrnvwvm2-13" target="JDRypYnZg-psdrnvwvm2-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="JDRypYnZg-psdrnvwvm2-13" value="Client" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=30;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;" vertex="1" parent="1">
+          <mxGeometry x="10" y="280" width="170" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="JDRypYnZg-psdrnvwvm2-22" value="" style="endArrow=open;endSize=12;dashed=1;html=1;rounded=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="JDRypYnZg-psdrnvwvm2-9" target="JDRypYnZg-psdrnvwvm2-5">
+          <mxGeometry width="160" relative="1" as="geometry">
+            <mxPoint x="380" y="250" as="sourcePoint" />
+            <mxPoint x="540" y="250" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
