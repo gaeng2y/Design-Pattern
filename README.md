@@ -4,7 +4,7 @@
 와 
 [리팩토링 구루](https://refactoring.guru/design-patterns)보면서 공부한 내용 정리하는 레포
 
-## Creational
+## [Creational](https://github.com/gaeng2y/Design-Pattern/blob/main/Creational/foundation.md)
 
 * [Builder](https://github.com/gaeng2y/Design-Pattern/blob/main/Creational/Builder/Builder.md)
 * [Prototype](https://github.com/gaeng2y/Design-Pattern/blob/main/Creational/Prototype/Prototype.md)
@@ -12,10 +12,11 @@
 * [Abstract Factory Method](https://github.com/gaeng2y/Design-Pattern/blob/main/Creational/AbstractFactoryMethod/AbstractFactoryMethod.md)
 * [Singleton](https://github.com/gaeng2y/Design-Pattern/blob/main/Creational/Singleton/Singleton.md)
 
-## Structural
+## [Structural](https://github.com/gaeng2y/Design-Pattern/blob/main/Structural/Structural.md)
 
 * [Bridge](https://github.com/gaeng2y/Design-Pattern/blob/main/Structural/Bridge/Bridge.md)
 * [Decorator](https://github.com/gaeng2y/Design-Pattern/blob/main/Structural/Decorator/Decorator.md)
 * [Facade](https://github.com/gaeng2y/Design-Pattern/blob/main/Structural/Facade/Facade.md)
+* [Flyweight](https://github.com/gaeng2y/Design-Pattern/blob/main/Structural/Flyweight/Flyweight.md)
 
 ## Behavioral
