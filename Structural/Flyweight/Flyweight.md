@@ -22,3 +22,6 @@ Flyweight Pattern은 유사하거나 같은 개체를 다량으로 생성해야�
 
 두 가지 경우 모두 개체를 공유하면 재사용할 수 있기 때문에 메모리를 절약할 수 있다는 장점이 있습니다
 
+## Flyweight Pattern 구성요소
+
+![uml](https://github.com/gaeng2y/Design-Pattern/blob/main/Structural/Flyweight/Flyweight)
